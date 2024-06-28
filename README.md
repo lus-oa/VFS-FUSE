@@ -2,7 +2,9 @@
 VFS
 
 ### 几个数据结构之间的关系
-![[Pasted image 20240626152753.png]]
+![image](https://github.com/lus-oa/VFS-FUSE/assets/122666739/cf0e7051-772d-4507-aaf3-ed214beaf59e)  
+
+
 ### 几个常用操作
 可用`strace -o ls.txt ls`指令获取该操作调用了哪些内核函数
 #### 1.read操作
@@ -45,7 +47,8 @@ ret = file->f_op->write(file, buf, count, pos);//根据file中定义的file_oper
 ```
 #### 3.ls操作
 - strace打印信息
-![[Pasted image 20240626154211.png]]
+![image](https://github.com/lus-oa/VFS-FUSE/assets/122666739/2718ac79-4458-4082-8dfc-92c1f1bbb69b)
+
 ##### 3.1 调用fstat系统调用
 ```c
 SYSCALL_DEFINE2(fstat, unsigned int, fd, struct __old_kernel_stat __user *, statbuf)
@@ -91,7 +94,8 @@ else
     res = file->f_op->iterate(file, ctx);
 ```
 #### 4.mkdir操作
-![[Pasted image 20240626161432.png]]
+![image](https://github.com/lus-oa/VFS-FUSE/assets/122666739/a98d020f-441c-4f1d-ace6-d6596e75d9a4)
+
 - 调用mkdir系统调用
 ```c
 SYSCALL_DEFINE2(mkdir, const char __user *, pathname, umode_t, mode)
