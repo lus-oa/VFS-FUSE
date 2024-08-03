@@ -7,6 +7,11 @@ VFS
 
 ### 几个常用操作
 可用`strace -o ls.txt ls`指令获取该操作调用了哪些内核函数
+
+### 几个常见指令的函数调用流程图
+![image](https://github.com/user-attachments/assets/d55182b1-8695-4af1-9d43-022492700c73)
+
+
 #### 1.read操作
 - 调用read系统调用
 ```c
